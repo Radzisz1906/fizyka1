@@ -178,10 +178,11 @@ def ruch():
             '''n = [None, None]
             t = [None, None]
 
-            n[0] = (atom1.Rect.centerx - atom.Rect.centerx) / (((atom1.Rect.centerx-atom.Rect.centerx)**2 + (atom1.Rect.centery-atom.Rect.centery)**2)**0.5)
-            n[1] = (atom1.Rect.centery - atom.Rect.centery) / (((atom1.Rect.centerx-atom.Rect.centerx)**2 + (atom1.Rect.centery-atom.Rect.centery)**2)**0.5)
-            t[0] = (-1.0 * (atom1.Rect.centery - atom.Rect.centery)) / (((atom1.Rect.centerx-atom.Rect.centerx)**2 + (atom1.Rect.centery-atom.Rect.centery)**2)**0.5)
-            t[1] = (atom1.Rect.centerx - atom.Rect.centerx) / (((atom1.Rect.centerx-atom.Rect.centerx)**2 + (atom1.Rect.centery-atom.Rect.centery)**2)**0.5)
+            n[0] = (xs1 - xs) / (((xs1 -
+                                   xs)**2 + (ys1 - ys)**2)**0.5)
+            n[1] = (ys1 - ys) / (((xs1 - xs)**2 + (ys1 - ys)**2)**0.5)
+            t[0] = (-1.0 * (ys1 - ys)) / (((xs1 - xs)**2 + (ys1 - ys)**2)**0.5)
+            t[1] = (xs1 - xs) / (((xs1 - xs)**2 + (ys1 - ys)**2)**0.5)
 
             v1 = [atom.speed_x, atom.speed_y]
             v2 = [atom1.speed_x, atom1.speed_y]
@@ -195,7 +196,8 @@ def ruch():
 
             vn1, vn2 = vn2, vn1
 
-            v1[0], v1[1], v2[0], v2[1] = vn1 * n[0] + vt1 * t[0], vn1 * n[1] + vt1 * t[1], vn2 * n[0] + vt2 * t[0], vn2 * n[1] + vt2 * t[1]
+            v1[0], v1[1], v2[0], v2[1] = vn1 * n[0] + vt1 * t[0], vn1 * n[1] + \
+                vt1 * t[1], vn2 * n[0] + vt2 * t[0], vn2 * n[1] + vt2 * t[1]
             atom.speed_x, atom.speed_y, atom1.speed_x, atom1.speed_y = v1[0], v1[1], v2[0], v2[1]'''
     # print("_____________________________",atom.Rect.colliderect(atom1.Rect))
 
